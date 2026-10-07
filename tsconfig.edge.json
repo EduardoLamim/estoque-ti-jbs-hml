@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "paths": { "npm:@supabase/supabase-js@2.117.2": ["./node_modules/@supabase/supabase-js"] }
+  },
+  "include": ["supabase/functions", "types/deno.d.ts"]
+}

@@ -1,0 +1,25 @@
+name: HML read-only health
+on:
+  schedule:
+    - cron: '23 12 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hml-read-only-health
+  cancel-in-progress: false
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check native Supabase Auth health (HML only)
+        run: node scripts/keep-alive-hml.mjs
+        env:
+          APP_ENV: HML
+          HML_SUPABASE_URL: https://xghrambcwigdemxancxr.supabase.co
+          HML_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}

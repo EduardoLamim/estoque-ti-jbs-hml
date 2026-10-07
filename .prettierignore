@@ -1,0 +1,7 @@
+node_modules
+dist
+pnpm-lock.yaml
+test-results
+playwright-report
+MASTER_SPEC_ESTOQUE_TI.md
+PHASE_01_FOUNDATION.md
